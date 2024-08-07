@@ -164,37 +164,89 @@ The GUI should launch, allowing you to interact with the Arduino-connected stimu
 
 ## Arduino .ino Code
 
-The repository also includes the Arduino `.ino` file, which is essential for the operation of the fNMES system. This firmware enables the Arduino to:
-- Receive commands from the Python GUI via serial communication.
-- Generate pulse trains with adjustable parameters such as pulse width, repetition rate, and repetition period.
-- Support both bipolar and monopolar stimulation modes.
-- Integrate an external operational amplifier (OpAmp) for enhanced precision and control over the output voltage.
+The repository also includes the Arduino .ino file, which is essential for the operation of the fNMES system. This firmware enables the Arduino to:
+
+	•	Receive commands from the Python GUI via serial communication.
+	•	Generate pulse trains with adjustable parameters such as pulse width, repetition rate, and repetition period.
+	•	Support both bipolar and monopolar stimulation modes.
+	•	Integrate an external operational amplifier (OpAmp) for enhanced precision and control over the output voltage.
 
 The Arduino firmware is designed to be flexible, allowing researchers to tailor the electrical stimulation parameters to their specific experimental needs. It facilitates the delivery of precise electrical pulses to facial muscles, making it a valuable tool for studying facial feedback effects and their neurological basis.
 
-### Loading the .ino Firmware onto Your Arduino
+Loading the .ino Firmware onto Your Arduino
 
-To load the `.ino` firmware onto your Arduino, follow these steps:
+To load the .ino firmware onto your Arduino, follow these steps:
 
-1. **Install the Arduino IDE**:
-   - Download and install the Arduino IDE from the [Arduino website](https://www.arduino.cc/en/software).
-
-2. **Connect Your Arduino**:
-   - Connect your Arduino board to your computer using a USB cable.
-
-3. **Open the .ino File**:
-   - Launch the Arduino IDE.
-   - Go to `File` > `Open` and navigate to the `.ino` file included in this repository. Open the file.
-
-4. **Select Your Board and Port**:
-   - Go to `Tools` > `Board` and select the appropriate Arduino board (e.g., Arduino Uno).
-   - Go to `Tools` > `Port` and select the port that your Arduino is connected to (e.g., COM3 on Windows, `/dev/cu.usbmodem146301` on macOS).
-
-5. **Upload the Firmware**:
-   - Click the `Upload` button (right arrow icon) in the Arduino IDE toolbar. This will compile the code and upload it to your Arduino board.
-   - Ensure the upload is successful by looking for the "Done uploading" message in the IDE.
+	1.	Install the Arduino IDE:
+	•	Download and install the Arduino IDE from the Arduino website.
+	2.	Connect Your Arduino:
+	•	Connect your Arduino board to your computer using a USB cable.
+	3.	Open the .ino File:
+	•	Launch the Arduino IDE.
+	•	Go to File > Open and navigate to the .ino file included in this repository. Open the file.
+	4.	Select Your Board and Port:
+	•	Go to Tools > Board and select the appropriate Arduino board (e.g., Arduino Uno).
+	•	Go to Tools > Port and select the port that your Arduino is connected to (e.g., COM3 on Windows, /dev/cu.usbmodem146301 on macOS).
+	5.	Upload the Firmware:
+	•	Click the Upload button (right arrow icon) in the Arduino IDE toolbar. This will compile the code and upload it to your Arduino board.
+	•	Ensure the upload is successful by looking for the “Done uploading” message in the IDE.
 
 Once the firmware is successfully uploaded, your Arduino is ready to communicate with the Python GUI and execute the electrical stimulation commands.
+
+DAC Controller Subfolder
+
+The dac_controller subfolder contains the necessary files for building and configuring the DAC (Digital-to-Analog Converter) controller. This includes both the Arduino code and the schematics for assembling the DAC.
+
+Contents of the dac_controller Subfolder
+
+	•	TMR0521_Library.kicad_sym: KiCad symbol library file.
+	•	dac_controller.kicad_pcb: KiCad PCB design file.
+	•	dac_controller.kicad_prl: KiCad project file.
+	•	dac_controller.kicad_pro: KiCad project file.
+	•	dac_controller.kicad_sch: KiCad schematic file.
+	•	dac_controller.net: KiCad netlist file.
+	•	dac_controller_pcb_1.1.pdf: PDF file of the PCB layout.
+	•	dac_controller_schematic_1.1.pdf: PDF file of the schematic diagram.
+	•	sym-lib-table: Symbol library table file.
+
+These files provide all the necessary information to build the DAC controller, which is used to control the analog output signals for the fNMES system. Below are the details on how to use the provided files to assemble and configure the DAC controller.
+
+Using the DAC Controller Files
+
+	1.	KiCad Design Files:
+	•	KiCad Project Files: Open the dac_controller.kicad_pro project file in KiCad to access the full design of the DAC controller.
+	•	Schematic File: The dac_controller.kicad_sch file contains the schematic diagram, which shows the circuit design.
+	•	PCB Design File: The dac_controller.kicad_pcb file includes the layout of the PCB, which is used to manufacture the physical circuit board.
+	2.	PDF Documentation:
+	•	Schematic Diagram: The dac_controller_schematic_1.1.pdf file provides a PDF version of the schematic diagram for easy reference.
+	•	PCB Layout: The dac_controller_pcb_1.1.pdf file offers a PDF version of the PCB layout, which can be used to understand the physical placement of components on the board.
+	3.	Component Library:
+	•	Symbol Library: The TMR0521_Library.kicad_sym file contains the symbols for components used in the DAC controller design.
+	4.	Netlist:
+	•	Netlist File: The dac_controller.net file provides the netlist for the DAC controller, which is used to link the schematic components with the PCB layout.
+	5.	Library Table:
+	•	Symbol Library Table: The sym-lib-table file helps KiCad locate the component symbols needed for the design.
+
+Building the DAC Controller
+
+Follow these steps to build the DAC controller:
+
+	1.	Open the KiCad Project:
+	•	Download and install KiCad from the KiCad website.
+	•	Open KiCad and load the dac_controller.kicad_pro project file.
+	2.	Review the Schematic:
+	•	Open the dac_controller.kicad_sch file in KiCad’s Eeschema tool to review the schematic diagram.
+	•	Ensure all components and connections match the design specifications.
+	3.	Prepare the PCB Layout:
+	•	Open the dac_controller.kicad_pcb file in KiCad’s PCBnew tool to review the PCB layout.
+	•	Make any necessary adjustments to the layout before manufacturing.
+	4.	Generate Gerber Files:
+	•	Generate Gerber files from the PCB layout, which will be used by PCB manufacturers to create the physical board.
+	5.	Assemble the PCB:
+	•	Once the PCB is manufactured, assemble the components as per the schematic and PCB layout.
+	•	Refer to the dac_controller_schematic_1.1.pdf and dac_controller_pcb_1.1.pdf files for guidance.
+	6.	Upload the Firmware:
+	•	Use the provided Arduino .ino file to program the Arduino microcontroller that interfaces with the DAC controller.
 
 ### Key Parameters of fNMES
 - **Pulse Phase**: Monophasic (unidirectional) and biphasic (bidirectional) waveforms.
