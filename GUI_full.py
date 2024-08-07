@@ -1,9 +1,21 @@
 # -*- coding: utf-8 -*-
-
 """
-Title: Graphical User Interface to control the Arduino based electrical stimulator
-Date of Creation: Fri Sep 11 17:23:16 2020
-Author: Themis Efthimiou
+# -----------------------------------------------------------------------------
+# fNMES-GUI: Graphical User Interface for Facial Neuromuscular Electrical Stimulation
+# -----------------------------------------------------------------------------
+# Created on: September 11, 2020
+# Author: Dr. Themis Niolas Efthimiou
+# Contact: themiftw20@gmail.com
+# -----------------------------------------------------------------------------
+# Description:
+# This Python script provides a graphical user interface (GUI) for controlling
+# electrical stimulators via Arduino boards. It facilitates the precise adjustment
+# of electrical stimulation parameters, enabling researchers to perform facial
+# neuromuscular electrical stimulation (fNMES) in experimental settings.
+# -----------------------------------------------------------------------------
+# License:
+# This project is licensed under the MIT License - see the LICENSE.md file for details.
+# -----------------------------------------------------------------------------
 """
 
 ##################################################################################################################################
