@@ -1,6 +1,6 @@
-# fNMES-GUI
+# fNMES-GUI: Computer-controlled Electrical Stimulation of Facial Muscles
 
-This repository hosts a Python script for a graphical user interface (GUI) designed to control electrical stimulators via Arduino boards. The GUI facilitates the precise adjustment of electrical stimulation parameters.
+This repository contains the Python script for a graphical user interface (GUI) designed to control electrical stimulators via Arduino boards, facilitating precise adjustment of electrical stimulation parameters. This repository accompanies the paper titled: *Computer-controlled electrical stimulation of facial muscles by facial neuromuscular electrical stimulation (fNMES): Hardware and software solutions* published in the Journal of Neuroscience Methods.
 
 ## Contents
 - [Requirements](#requirements)
@@ -16,6 +16,7 @@ This repository hosts a Python script for a graphical user interface (GUI) desig
   - [Running the Script](#running-the-script)
   - [Configure the Port](#configure-the-port)
   - [Running the GUI](#running-the-gui)
+- [Arduino .ino Code](#arduino-ino-code)
 - [License](#license)
 
 ## Requirements
@@ -35,10 +36,14 @@ Ensure the Arduino is set with a BaudRate of 19200. Connection ports differ base
 2. Type: `ls /dev/tty*` and note the port number listed for `/dev/ttyUSB*` or `/dev/ttyACM*`
 3. The port number is represented with `*` here.
 
+![Port for Mac](images/Find_port_MAC.png)
+
 #### Windows:
 1. Open Device Manager (Start → Control Panel → Hardware and Sound → Device Manager)
 2. Look under “Ports” to find the matching COM port.
 3. Note the number in the bracket behind the port description.
+
+![Port for Windows](images/Find_port_Windows.png)
 
 ## GUI Functionality
 
@@ -87,28 +92,42 @@ Before running the GUI, make sure you have the following:
 - **From GitHub**: Navigate to the GitHub repository where the fNMES-GUI script is hosted.
   - Click on the `Code` button and select `Download ZIP`, or clone the repository using:
     ```bash
-    git clone [repository-url]
+    git clone git@github.com:ThemisEfth/fNMES-Technical-Guide.git
     ```
   - Extract the ZIP file if you downloaded it.
+
+Here is the revised section of the GitHub README that includes the images and a description of the two types of GUIs:
+
+## GUI Types
+
+There are two types of GUIs available: a condensed version and a full version.
+
+### Condensed GUI
+
+The condensed GUI focuses on simplifying the user interface by reducing the number of input fields and emphasizing the use of milliseconds over microseconds for input parameters. This version is recommended for most users due to its simplicity and ease of use.
+
+![Condensed GUI](images/gui_condensed.png)
+
+### Full GUI
+
+The full GUI provides a more comprehensive interface with additional input fields, allowing for more detailed control over the stimulation parameters. This version includes inputs for both milliseconds and microseconds, giving users more flexibility in their settings.
+
+![Condensed GUI](images/gui_full.png)
+
+### Choosing the Right GUI
+
+- **Condensed GUI**: Use this version if you prefer a simpler interface with fewer input fields and a focus on using milliseconds for timing parameters.
+- **Full GUI**: Choose this version if you need more detailed control over the stimulation parameters and require inputs for both milliseconds and microseconds.
+
+To switch between the GUIs, simply use the corresponding Python script provided in the repository for each version.
+
 
 ### Running the Script
 Once you have Python and the script on your local machine, you can run the script using one of the following methods:
 
-#### Using the Command Line
-- Open Command Prompt (Windows) or Terminal (Mac and Linux).
-- Navigate to the directory containing the script. For example:
-  ```bash
-  cd path/to/your/script
-  ```
-- Run the script by typing:
-  ```bash
-  python fNMES_GUI.py
-  ```
-
 #### Using an Integrated Development Environment (IDE)
 - Open your preferred IDE (e.g., PyCharm, VSCode).
 - Load the script into the IDE.
-- Run the script using the IDE’s run feature.
 
 ### Configure the Port
 Before running the GUI, you need to configure the script to communicate with the correct Arduino port:
@@ -123,8 +142,68 @@ Before running the GUI, you need to configure the script to communicate with the
   - Replace `'COM3'` with the port you identified earlier.
   - Save the changes.
 
+![Example Image](images/Change_ports.png)
+
 ### Running the GUI
-After configuring the port, run the script as described in step 3. The GUI should launch, allowing you to interact with the Arduino-connected stimulator.
+After configuring the port, run the script in the IDE.
+
+Alternatively, you can run the Python file in the terminal/command line:
+
+#### Using the Command Line
+- Open Command Prompt (Windows) or Terminal (Mac and Linux).
+- Navigate to the directory containing the script. For example:
+  ```bash
+  cd path/to/your/script
+  ```
+- Run the script by typing:
+  ```bash
+  python fNMES_GUI.py
+  ```
+
+The GUI should launch, allowing you to interact with the Arduino-connected stimulator.
+
+## Arduino .ino Code
+
+The repository also includes the Arduino `.ino` file, which is essential for the operation of the fNMES system. This firmware enables the Arduino to:
+- Receive commands from the Python GUI via serial communication.
+- Generate pulse trains with adjustable parameters such as pulse width, repetition rate, and repetition period.
+- Support both bipolar and monopolar stimulation modes.
+- Integrate an external operational amplifier (OpAmp) for enhanced precision and control over the output voltage.
+
+The Arduino firmware is designed to be flexible, allowing researchers to tailor the electrical stimulation parameters to their specific experimental needs. It facilitates the delivery of precise electrical pulses to facial muscles, making it a valuable tool for studying facial feedback effects and their neurological basis.
+
+### Loading the .ino Firmware onto Your Arduino
+
+To load the `.ino` firmware onto your Arduino, follow these steps:
+
+1. **Install the Arduino IDE**:
+   - Download and install the Arduino IDE from the [Arduino website](https://www.arduino.cc/en/software).
+
+2. **Connect Your Arduino**:
+   - Connect your Arduino board to your computer using a USB cable.
+
+3. **Open the .ino File**:
+   - Launch the Arduino IDE.
+   - Go to `File` > `Open` and navigate to the `.ino` file included in this repository. Open the file.
+
+4. **Select Your Board and Port**:
+   - Go to `Tools` > `Board` and select the appropriate Arduino board (e.g., Arduino Uno).
+   - Go to `Tools` > `Port` and select the port that your Arduino is connected to (e.g., COM3 on Windows, `/dev/cu.usbmodem146301` on macOS).
+
+5. **Upload the Firmware**:
+   - Click the `Upload` button (right arrow icon) in the Arduino IDE toolbar. This will compile the code and upload it to your Arduino board.
+   - Ensure the upload is successful by looking for the "Done uploading" message in the IDE.
+
+Once the firmware is successfully uploaded, your Arduino is ready to communicate with the Python GUI and execute the electrical stimulation commands.
+
+### Key Parameters of fNMES
+- **Pulse Phase**: Monophasic (unidirectional) and biphasic (bidirectional) waveforms.
+- **Waveform Shape**: Typically, a square wave is used for its effectiveness and comfort.
+- **Pulse Width**: The duration of the ion flow, is critical for stimulating facial nerves effectively.
+- **Frequency**: Measured in Hz, affects muscle contraction quality and fatigue rate.
+- **Stimulation Intensity**: Delivered in milliamperes (mA), influences muscle contraction strength.
+
+The provided Arduino code and hardware schematics enable the integration of these parameters into the fNMES setup, allowing for precise and reproducible facial muscle stimulation in experimental settings.
 
 ## License
 
