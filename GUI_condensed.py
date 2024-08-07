@@ -34,8 +34,15 @@ from tkinter import *
 # 3. Locate your Arduino device. The port number will be displayed as "COM" followed by a number (e.g., COM3).
 # Use this COM port number in your script.
 
+# Initialize Serial Connections and wake up DACs
+ser1 = serial.Serial("YOUR/USB/PATH", 19200, timeout=0, writeTimeout=0)
+time.sleep(2)  # wait 2 s
+ser1.write(b'\xFF')  # Start device
 
-
+ser2 = serial.Serial("YOUR/USB/PATH", 19200, timeout=0, writeTimeout=0)
+time.sleep(2)  # wait 2 s
+ser2.write(b'\xFF')  # Start device
+# Initialize Serial Connections and wake up DACs
 
 # Create GUI Window
 window = Tk()
