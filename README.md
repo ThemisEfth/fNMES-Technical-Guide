@@ -101,7 +101,7 @@ Before running the GUI, make sure you have the following:
 - **From GitHub**: Navigate to the GitHub repository where the fNMES-GUI script is hosted.
   - Click on the `Code` button and select `Download ZIP`, or clone the repository using:
     ```bash
-    [git clone git@github.com:ThemisEfth/fNMES-Technical-Guide.git](https://github.com/ThemisEfth/fNMES-Technical-Guide)
+    git clone git@github.com:ThemisEfth/fNMES-Technical-Guide.git](https://github.com/ThemisEfth/fNMES-Technical-Guide)
     ```
   - Extract the ZIP file if you downloaded it.
 
