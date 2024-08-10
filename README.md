@@ -1,6 +1,6 @@
 # fNMES-GUI: Computer-controlled Electrical Stimulation of Facial Muscles
 
-This repository contains the Python script for a graphical user interface (GUI) designed to control electrical stimulators via Arduino boards, facilitating precise adjustment of electrical stimulation parameters. This repository accompanies the paper titled: *Computer-controlled electrical stimulation of facial muscles by facial neuromuscular electrical stimulation (fNMES): Hardware and software solutions* published in the Journal of Neuroscience Methods.
+This repository contains the Python script for a graphical user interface (GUI) designed to control electrical stimulators via Arduino boards, facilitating precise adjustment of electrical stimulation parameters. This repository accompanies the paper titled: *Computer-controlled electrical stimulation of facial muscles by facial neuromuscular electrical stimulation (fNMES): Hardware and software solutions*.
 
 ## Contents
 
