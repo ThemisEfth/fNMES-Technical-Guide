@@ -20,7 +20,7 @@ This repository contains the Python script for a graphical user interface (GUI) 
 - [Arduino .ino Code](#arduino-ino-code)
 - [License](#license)
 
-## Video walk guide
+## Video guide
 [![YouTube Video](https://img.youtube.com/vi/Px4Lml14Buc/0.jpg)]([https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE](https://www.youtube.com/watch?v=Px4Lml14Buc))
 
 ## Requirements
