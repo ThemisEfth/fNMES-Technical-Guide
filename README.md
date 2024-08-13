@@ -20,6 +20,9 @@ This repository contains the Python script for a graphical user interface (GUI) 
 - [Arduino .ino Code](#arduino-ino-code)
 - [License](#license)
 
+## Video walk guide
+[![YouTube Video](https://img.youtube.com/vi/Px4Lml14Buc/0.jpg)]([https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE](https://www.youtube.com/watch?v=Px4Lml14Buc))
+
 ## Requirements
 
 The GUI is developed using Python 3.8.5 and utilizes the `tkinter` package for the interface. Additional Python modules required are:
