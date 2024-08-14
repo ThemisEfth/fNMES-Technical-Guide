@@ -21,7 +21,7 @@ This repository contains the Python script for a graphical user interface (GUI) 
 - [License](#license)
 
 ## Video guide
-[![YouTube Video](https://img.youtube.com/vi/Px4Lml14Buc/0.jpg)]((https://www.youtube.com/watch?v=Px4Lml14Buc))
+[![YouTube Video](https://img.youtube.com/vi/Px4Lml14Buc/0.jpg)](https://www.youtube.com/watch?v=Px4Lml14Buc)
 
 ## Requirements
 
